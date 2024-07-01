@@ -1,6 +1,8 @@
 # SAL
+## Transforming Lane Detection in New Zealand
 
-Welcome to **SAL** – the lane detection software designed to enhance driving safety and support older vehicles without built-in Apple CarPlay or Android Auto capabilities. 
+SAL is an advanced software solution aimed at enhancing the safety and driving experience on New Zealand's roads. By integrating state-of-the-art lane detection technology, SAL offers a seamless and effective way to monitor lane adherence, helping drivers maintain safe driving practices. Our goal is to provide this innovative tool free of charge for vehicles undergoing their next Warrant of Fitness, contributing to safer and more reliable roadways across New Zealand.
+
 
 ## Overview
 
