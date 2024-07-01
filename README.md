@@ -45,18 +45,47 @@ You'd want to generate a signing key and build the apk like [here](https://faceb
 * [react-native-spinkit](https://github.com/maxs15/react-native-spinkit) - A collection of animated loading indicators
 
 
-## Contributing
-
-I'm open to reasonable pull requests to just play around with the application for fun
-
-## Authors
-
-* **SAL** - *Initial work* 
-
-
 ## License
 
-This project is licensed under the MIT License 
+## Software Licensing Agreement (SAL)
+
+This repository is governed by the terms of the Software Licensing Agreement (SAL) as detailed below.
+
+
+Software Licensing Agreement
+
+This Software Licensing Agreement ("Agreement") governs the use of the lane detection software ("Software") developed under the Software Licensing Agreement (SAL), hereinafter referred to as "Licensor."
+
+1. License Grant
+
+Licensor grants Licensee a non-exclusive, non-transferable license to use the Software in accordance with the terms and conditions set forth in this Agreement.
+
+2. Restrictions
+
+Licensee shall not:
+
+Modify, adapt, translate, or create derivative works of the Software.
+Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.
+Distribute, sublicense, lease, rent, or loan the Software to any third party without prior written consent from Licensor.
+3. Ownership
+
+Licensor retains all rights, title, and interest in and to the Software, including all intellectual property rights therein.
+
+4. Warranty Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+5. Limitation of Liability
+
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE SOFTWARE, WHETHER OR NOT LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+6. Governing Law
+
+This Agreement shall be governed by and construed in accordance with the laws of New Zealand, without regard to its conflict of law principles.
+
+7. Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties concerning the Software and supersedes all prior agreements and understandings, whether written or oral, relating to its subject matter.
 
 ## Acknowledgments
 
