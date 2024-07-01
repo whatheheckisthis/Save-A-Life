@@ -67,6 +67,8 @@ Licensee shall not:
 Modify, adapt, translate, or create derivative works of the Software.
 Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.
 Distribute, sublicense, lease, rent, or loan the Software to any third party without prior written consent from Licensor.
+
+
 3. Ownership
 
 Licensor retains all rights, title, and interest in and to the Software, including all intellectual property rights therein.
