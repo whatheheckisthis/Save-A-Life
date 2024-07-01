@@ -54,7 +54,7 @@ This repository is governed by the terms of the Software Licensing Agreement (SA
 
 Software Licensing Agreement
 
-This Software Licensing Agreement ("Agreement") governs the use of the lane detection software ("Software") developed under the Software Licensing Agreement (SAL), hereinafter referred to as "Licensor."
+This Software Licensing Agreement ("Agreement") governs the use of the lane detection software ("SAL") developed under the Software Licensing Agreement (SAL), from now on referred to as "Licensor."
 
 1. License Grant
 
