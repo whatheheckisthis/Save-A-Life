@@ -1,6 +1,6 @@
 # SAL
 ## Transforming Lane Detection in New Zealand
- [If you have ideas or improvements, feel free to submit a pull request. We welcome collaboration on a serious note; if you're interested in significant contributions, please contact us to discuss](https://www.linkedin.com/company/sal-save-a-life/about/?viewAsMember=true)
+If you have ideas or improvements, feel free to submit a pull request. We welcome collaboration on a serious note; if you're interested in significant contributions, please [contact us to discuss](https://www.linkedin.com/company/sal-save-a-life/about/?viewAsMember=true)
 
 SAL is an advanced software solution aimed at enhancing the safety and driving experience on New Zealand's roads. By integrating state-of-the-art lane detection technology, SAL offers a seamless and effective way to monitor lane adherence, helping drivers maintain safe driving practices. Our goal is to provide this innovative tool free of charge for vehicles undergoing their next Warrant of Fitness, contributing to safer and more reliable roadways across New Zealand.
 
