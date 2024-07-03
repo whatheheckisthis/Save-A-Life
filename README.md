@@ -43,9 +43,11 @@ To install and use **SAL**, follow these steps:
 
 ## Usage
 
-1. **Start the Software**: Ensure that the software is running and connected to your vehicle's system.
-2. **Monitor Lane Detection**: Observe the software's lane detection capability as it processes real-time video feeds from the vehicle's cameras.
-3. **Respond to Alerts**: Follow any corrective actions or alerts provided by the software to maintain safe driving.
+Start the Software: Ensure that SAL is running and properly connected to your vehicle’s onboard diagnostic system. Verify the integration through the software interface.
+
+Monitor Lane Detection: Observe SAL’s lane detection capabilities as it processes real-time video feeds from the vehicle's cameras. The system will display lane boundaries and vehicle positioning on the dashboard interface.
+
+Respond to Alerts: Pay attention to any corrective actions or alerts issued by SAL. These alerts are designed to assist in maintaining safe driving practices by notifying the driver of potential lane departures or signs of driver inattentiveness.
 
 ## Contributing
 
