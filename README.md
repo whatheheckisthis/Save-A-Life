@@ -7,7 +7,7 @@ SAL is an advanced software solution aimed at enhancing the safety and driving e
 
 ## Overview
 
-**SAL** SAL (Save a Life) is an advanced software solution designed to enhance road safety by leveraging cutting-edge lane detection technology and real-time driver monitoring. Developed using state-of-the-art statistical analysis and modeling techniques, SAL aims to proactively prevent accidents caused by unintended lane departures and driver inattentiveness.
+**SAL**(Save a Life) is an advanced software solution designed to enhance road safety by leveraging cutting-edge lane detection technology and real-time driver monitoring. Developed using state-of-the-art statistical analysis and modeling techniques, SAL aims to proactively prevent accidents caused by unintended lane departures and driver inattentiveness.
 
 ## Key Features
 
