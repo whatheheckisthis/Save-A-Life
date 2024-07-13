@@ -24,9 +24,6 @@ Run the file main_synthetic_test.m and see it running with a synthetic dataset.
 
 ### New Application - Lane Detection Solution at SAL  ###
 
-
-
-Lane Detection Solution at SAL
 We are now repurposing this Gaussian Mixture MCMC algorithm for our lane detection solution at SAL. The core principles of handling multimodal distributions and sampling techniques will enhance our ability to detect and analyze lane patterns accurately. This innovative application demonstrates the algorithm's versatility beyond its initial seismic inversion context.
 
 Multimodal Distributions for Lane Detection:
