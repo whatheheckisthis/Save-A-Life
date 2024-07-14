@@ -1,9 +1,9 @@
-HMMs for Autonomous Driving 
+
 
 # Introduction
-Disclaimer:
 
-- The goal of this repository is to **get more familiar with the concepts** of **`Hidden Markov Models`** (**= HMM**).
+
+Hidden Markov Models`** (**= HMM**).
 
 Main topics:
 - Problem formulation using a basic example to introduce the **HMM terminology**.
@@ -16,10 +16,9 @@ Main topics:
 [Bonus](#Bonus):
 - **Literature review** of **HMM implementations** for **Autonomous Driving**: a selection of recent research papers focusing on **manoeuvre recognition** and **driving behaviour estimation** for **prediction purposes**.
 
-# Problem motivation
-For left-hand-drive countries such as the UK, just invert the reasoning. :smiley:
+*invert the reasoning
 
-- Your car is driving on a **2-lane highway**.
+- Your car is driving on a **2-lane highway/motorway**.
 - Imagine that you can **remotely monitor the velocity of the car** (e.g. I communicate it to you).
 - But you do have **no direct access to the lateral position** (`right lane` of `left lane`).
 	- Formally, you **cannot directly observe the underlying stochastic walk between `lane` states**.
