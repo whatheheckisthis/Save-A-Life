@@ -1,5 +1,5 @@
 Introduction
-In the context of SAL (Safe Autonomous Lane Detection), Hidden Markov Models (HMMs) are employed to enhance the system's ability to infer driver behavior and lane position based on observed data.
+
 
 Main Topics:
 
