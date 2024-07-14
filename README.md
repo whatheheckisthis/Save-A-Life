@@ -1,9 +1,6 @@
-HMMs for Autonomous Driving 
 
-# Introduction
-Disclaimer:
 
-- The goal of this repository is to **get more familiar with the concepts** of **`Hidden Markov Models`** (**= HMM**).
+# HMMs for Autonomous Driving:  **`Hidden Markov Models`**
 
 Main topics:
 - Problem formulation using a basic example to introduce the **HMM terminology**.
