@@ -1,93 +1,215 @@
-# SAL
-## Transforming Lane Detection in New Zealand
-If you have ideas or improvements, feel free to submit a pull request. We welcome collaboration on a serious note; if you're interested in significant contributions, please [contact us to discuss](https://www.linkedin.com/company/sal-save-a-life/about/?viewAsMember=true)
+# Mask R-CNN for Object Detection and Segmentation
 
-SAL is an advanced software solution aimed at enhancing the safety and driving experience on New Zealand's roads. By integrating state-of-the-art lane detection technology, SAL offers a seamless and effective way to monitor lane adherence, helping drivers maintain safe driving practices. Our goal is to provide this innovative tool free of charge for vehicles undergoing their next Warrant of Fitness, contributing to safer and more reliable roadways across New Zealand.
+This is an implementation of [Mask R-CNN](https://arxiv.org/abs/1703.06870) on Python 3, Keras, and TensorFlow. The model generates bounding boxes and segmentation masks for each instance of an object in the image. It's based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
+
+![Instance Segmentation Sample](assets/street.png)
+
+The repository includes:
+* Source code of Mask R-CNN built on FPN and ResNet101.
+* Training code for MS COCO
+* Pre-trained weights for MS COCO
+* Jupyter notebooks to visualize the detection pipeline at every step
+* ParallelModel class for multi-GPU training
+* Evaluation on MS COCO metrics (AP)
+* Example of training on your own dataset
 
 
-## Overview
 
-**SAL**(Save a Life) is an advanced software solution designed to enhance road safety by leveraging cutting-edge lane detection technology and real-time driver monitoring. Developed using state-of-the-art statistical analysis and modeling techniques, SAL aims to proactively prevent accidents caused by unintended lane departures and driver inattentiveness.
+* [train_shapes.ipynb](samples/shapes/train_shapes.ipynb) shows how to train Mask R-CNN on your own dataset. This notebook introduces a toy dataset (Shapes) to demonstrate training on a new dataset.
 
-## Key Features
+* ([model.py](mrcnn/model.py), [utils.py](mrcnn/utils.py), [config.py](mrcnn/config.py)): These files contain the main Mask RCNN implementation. 
 
-Advanced Lane Detection: Utilizes Gaussian Mixture Models (GMM) and Hidden Markov Models (HMM) to achieve precise lane detection with accuracy rates exceeding 90%. SAL reliably identifies lane boundaries and tracks vehicle positioning under diverse environmental conditions.
-Real-Time Driver Monitoring: Incorporates Bayesian inference and machine learning algorithms, such as Support Vector Machines (SVM) and Random Forests, to model and predict driver behavior. This allows for the detection of distractions and drowsiness, enabling proactive safety interventions.
-Seamless Integration: Integrates via a dedicated microchip that processes up to 1000 data points per second, facilitating real-time decision-making and adaptive control. SAL supports seamless integration with existing vehicle systems without the need for additional hardware.
-Simulation and Validation: Validated through Monte Carlo simulations replicating real-world driving scenarios, demonstrating a 30% reduction in lane departure incidents. Simulation metrics include mean time between failures (MTBF) and risk reduction percentages.
+
+* [inspect_data.ipynb](samples/coco/inspect_data.ipynb). This notebook visualizes the different pre-processing steps
+to prepare the training data.
+
+* [inspect_model.ipynb](samples/coco/inspect_model.ipynb) This notebook goes in depth into the steps performed to detect and segment objects. It provides visualizations of every step of the pipeline.
+
+* [inspect_weights.ipynb](samples/coco/inspect_weights.ipynb)
+This notebooks inspects the weights of a trained model and looks for anomalies and odd patterns.
+
+
+# Step by Step Detection
+To help with debugging and understanding the model, there are 3 notebooks 
+([inspect_data.ipynb](samples/coco/inspect_data.ipynb), [inspect_model.ipynb](samples/coco/inspect_model.ipynb),
+[inspect_weights.ipynb](samples/coco/inspect_weights.ipynb)) that provide a lot of visualizations and allow running the model step by step to inspect the output at each point. Here are a few examples:
+
+
+
+## 1. Anchor sorting and filtering
+Visualizes every step of the first stage Region Proposal Network and displays positive and negative anchors along with anchor box refinement.
+![](assets/detection_anchors.png)
+
+## 2. Bounding Box Refinement
+This is an example of final detection boxes (dotted lines) and the refinement applied to them (solid lines) in the second stage.
+![](assets/detection_refinement.png)
+
+## 3. Mask Generation
+Examples of generated masks. These then get scaled and placed on the image in the right location.
+
+![](assets/detection_masks.png)
+
+## 4.Layer activations
+Often it's useful to inspect the activations at different layers to look for signs of trouble (all zeros or random noise).
+
+![](assets/detection_activations.png)
+
+## 5. Weight Histograms
+Another useful debugging tool is to inspect the weight histograms. These are included in the inspect_weights.ipynb notebook.
+
+![](assets/detection_histograms.png)
+
+## 6. Logging to TensorBoard
+TensorBoard is another great debugging and visualization tool. The model is configured to log losses and save weights at the end of every epoch.
+
+![](assets/detection_tensorboard.png)
+
+## 6. Composing the different pieces into a final result
+
+![](assets/detection_final.png)
+
+
+
+
+```
+# Train a new model starting from pre-trained COCO weights
+python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=coco
+
+# Train a new model starting from ImageNet weights
+python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=imagenet
+
+# Continue training a model that you had trained earlier
+python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=/path/to/weights.h5
+
+# Continue training the last model you trained. This will find
+# the last trained weights in the model directory.
+python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=last
+```
+
+You can also run the COCO evaluation code with:
+```
+# Run COCO evaluation on the last trained model
+python3 samples/coco/coco.py evaluate --dataset=/path/to/coco/ --model=last
+```
+
+The training schedule, learning rate, and other parameters should be set in `samples/coco/coco.py`.
+
+
+# Training on Your Own Dataset
+
+Start by reading this [blog post about the balloon color splash sample](https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46). It covers the process starting from annotating images to training to using the results in a sample application.
+
+In summary, to train the model on your own dataset you'll need to extend two classes:
+
+```Config```
+This class contains the default configuration. Subclass it and modify the attributes you need to change.
+
+```Dataset```
+This class provides a consistent way to work with any dataset. 
+It allows you to use new datasets for training without having to change 
+the code of the model. It also supports loading multiple datasets at the
+same time, which is useful if the objects you want to detect are not 
+all available in one dataset. 
+
+See examples in `samples/shapes/train_shapes.ipynb`, `samples/coco/coco.py`, `samples/balloon/balloon.py`, and `samples/nucleus/nucleus.py`.
+
+## Differences from the Official Paper
+This implementation follows the Mask RCNN paper for the most part, but there are a few cases where we deviated in favor of code simplicity and generalization. These are some of the differences we're aware of. If you encounter other differences, please do let us know.
+
+* **Image Resizing:** To support training multiple images per batch we resize all images to the same size. For example, 1024x1024px on MS COCO. We preserve the aspect ratio, so if an image is not square we pad it with zeros. In the paper the resizing is done such that the smallest side is 800px and the largest is trimmed at 1000px.
+* **Bounding Boxes**: Some datasets provide bounding boxes and some provide masks only. To support training on multiple datasets we opted to ignore the bounding boxes that come with the dataset and generate them on the fly instead. We pick the smallest box that encapsulates all the pixels of the mask as the bounding box. This simplifies the implementation and also makes it easy to apply image augmentations that would otherwise be harder to apply to bounding boxes, such as image rotation.
+
+    To validate this approach, we compared our computed bounding boxes to those provided by the COCO dataset.
+We found that ~2% of bounding boxes differed by 1px or more, ~0.05% differed by 5px or more, 
+and only 0.01% differed by 10px or more.
+
+
+## Citation
+:
+```
+@misc{matterport_maskrcnn_2017,
+  title={Mask R-CNN for object detection and instance segmentation on Keras and TensorFlow},
+  author={Waleed Abdulla},
+  year={2017},
+  publisher={Github},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/matterport/Mask_RCNN}},
+}
+```
+
+## Requirements
+Python 3.4, TensorFlow 1.3, Keras 2.0.8 and other common packages listed in `requirements.txt`.
+
+### MS COCO Requirements:
+To train or test on MS COCO, you'll also need:
+* pycocotools (installation instructions below)
+* [MS COCO Dataset](http://cocodataset.org/#home)
+* Download the 5K [minival](https://dl.dropboxusercontent.com/s/o43o90bna78omob/instances_minival2014.json.zip?dl=0)
+  and the 35K [validation-minus-minival](https://dl.dropboxusercontent.com/s/s3tw5zcg7395368/instances_valminusminival2014.json.zip?dl=0)
+  subsets. More details in the original [Faster R-CNN implementation](https://github.com/rbgirshick/py-faster-rcnn/blob/master/data/README.md).
+
+If you use Docker, the code has been verified to work on
+[this Docker container](https://hub.docker.com/r/waleedka/modern-deep-learning/).
+
 
 ## Installation
-
-To install and use **SAL**, follow these steps:
-
-1. **Clone the Repository**:
+1. Clone this repository
+2. Install dependencies
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+3. Run setup from the repository root directory
     ```bash
-    git clone https://github.com/yourusername/SAL.git
-    cd SAL
-    ```
+    python3 setup.py install
+    ``` 
+3. Download pre-trained COCO weights (mask_rcnn_coco.h5) from the [releases page](https://github.com/matterport/Mask_RCNN/releases).
+4. (Optional) To train or test on MS COCO install `pycocotools` from one of these repos. They are forks of the original pycocotools with fixes for Python3 and Windows (the official repo doesn't seem to be active anymore).
 
-2. **Install Dependencies**:
-    ```bash
-    npm install
-    ```
+    * Linux: https://github.com/waleedka/coco
+    * Windows: https://github.com/philferriere/cocoapi.
+    You must have the Visual C++ 2015 build tools on your path (see the repo for additional details)
 
-3. **Build the Project**:
-    ```bash
-    npm run build
-    ```
+# Projects Using this Model
+If you extend this model to other datasets or build projects that use it, we'd love to hear from you.
 
-4. **Run the Application**:
-    ```bash
-    npm start
-    ```
+### [4K Video Demo](https://www.youtube.com/watch?v=OOT3UIXZztE) by Karol Majek.
+[![Mask RCNN on 4K Video](assets/4k_video.gif)](https://www.youtube.com/watch?v=OOT3UIXZztE)
 
-## Usage
+### [Images to OSM](https://github.com/jremillard/images-to-osm): Improve OpenStreetMap by adding baseball, soccer, tennis, football, and basketball fields.
 
-Start the Software: Ensure that SAL is running and properly connected to your vehicle’s onboard diagnostic system. Verify the integration through the software interface.
+![Identify sport fields in satellite images](assets/images_to_osm.png)
 
-Monitor Lane Detection: Observe SAL’s lane detection capabilities as it processes real-time video feeds from the vehicle's cameras. The system will display lane boundaries and vehicle positioning on the dashboard interface.
+### [Splash of Color](https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46). A blog post explaining how to train this model from scratch and use it to implement a color splash effect.
+![Balloon Color Splash](assets/balloon_color_splash.gif)
 
-Respond to Alerts: Pay attention to any corrective actions or alerts issued by SAL. These alerts are designed to assist in maintaining safe driving practices by notifying the driver of potential lane departures or signs of driver inattentiveness.
 
-## Contributing
+### [Segmenting Nuclei in Microscopy Images](samples/nucleus). Built for the [2018 Data Science Bowl](https://www.kaggle.com/c/data-science-bowl-2018)
+Code is in the `samples/nucleus` directory.
 
-**SAL** is open to contributions from those interested in enhancing the software. If you have ideas or improvements, feel free to submit a pull request. We welcome collaboration on a serious note; if you're interested in significant contributions, please contact us to discuss.
+![Nucleus Segmentation](assets/nucleus_segmentation.png)
 
-## Licensing
+### [Detection and Segmentation for Surgery Robots](https://github.com/SUYEgit/Surgery-Robot-Detection-Segmentation) by the NUS Control & Mechatronics Lab.
+![Surgery Robot Detection and Segmentation](https://github.com/SUYEgit/Surgery-Robot-Detection-Segmentation/raw/master/assets/video.gif)
 
-**SAL** is provided under a proprietary software license. By using this software, you agree to the terms outlined in the [Software Licensing Agreement](LICENSE).
+### [Reconstructing 3D buildings from aerial LiDAR](https://medium.com/geoai/reconstructing-3d-buildings-from-aerial-lidar-with-ai-details-6a81cb3079c0)
+A proof of concept project by [Esri](https://www.esri.com/), in collaboration with Nvidia and Miami-Dade County. Along with a great write up and code by Dmitry Kudinov, Daniel Hedges, and Omar Maher.
+![3D Building Reconstruction](assets/project_3dbuildings.png)
 
-## Software Licensing Agreement (SAL)
+### [Usiigaci: Label-free Cell Tracking in Phase Contrast Microscopy](https://github.com/oist/usiigaci)
+A project from Japan to automatically track cells in a microfluidics platform. Paper is pending, but the source code is released.
 
-This Software Licensing Agreement ("Agreement") governs the use of the lane detection software ("Software") developed by [Licensor], hereinafter referred to as "Licensor."
+![](assets/project_usiigaci1.gif) ![](assets/project_usiigaci2.gif)
 
-### 1. License Grant
+### [Characterization of Arctic Ice-Wedge Polygons in Very High Spatial Resolution Aerial Imagery](http://www.mdpi.com/2072-4292/10/9/1487)
+Research project to understand the complex processes between degradations in the Arctic and climate change. By Weixing Zhang, Chandi Witharana, Anna Liljedahl, and Mikhail Kanevskiy.
+![image](assets/project_ice_wedge_polygons.png)
 
-Licensor grants Licensee a non-exclusive, non-transferable license to use the Software in accordance with the terms and conditions set forth in this Agreement.
+### [Mask-RCNN Shiny](https://github.com/huuuuusy/Mask-RCNN-Shiny)
+A computer vision class project by HU Shiyu to apply the color pop effect on people with beautiful results.
+![](assets/project_shiny1.jpg)
 
-### 2. Restrictions
+### [Mapping Challenge](https://github.com/crowdAI/crowdai-mapping-challenge-mask-rcnn): Convert satellite imagery to maps for use by humanitarian organisations.
+![Mapping Challenge](assets/mapping_challenge.png)
 
-Licensee shall not:
-- Modify, adapt, translate, or create derivative works of the Software.
-- Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.
-- Distribute, sublicense, lease, rent, or loan the Software to any third party without prior written consent from Licensor.
-
-### 3. Ownership
-
-Licensor retains all rights, title, and interest in and to the Software, including all intellectual property rights therein.
-
-### 4. Warranty Disclaimer
-
-THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
-
-### 5. Limitation of Liability
-
-IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE SOFTWARE, WHETHER OR NOT LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-### 6. Governing Law
-
-This Agreement shall be governed by and construed in accordance with the laws of New Zealand, without regard to its conflict of law principles.
-
-### 7. Entire Agreement
-
-This Agreement constitutes the entire agreement between the parties concerning the Software and supersedes all prior agreements and understandings, whether written or oral, relating to its subject matter.
+### [GRASS GIS Addon](https://github.com/ctu-geoforall-lab/i.ann.maskrcnn) to generate vector masks from geospatial imagery. Based on a [Master's thesis](https://github.com/ctu-geoforall-lab-projects/dp-pesek-2018) by Ondřej Pešek.
+![GRASS GIS Image](assets/project_grass_gis.png)
