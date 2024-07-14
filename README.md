@@ -1,46 +1,52 @@
+Introduction
+In the context of SAL (Safe Autonomous Lane Detection), Hidden Markov Models (HMMs) are employed to enhance the system's ability to infer driver behavior and lane position based on observed data.
 
+Main Topics:
 
-# Introduction
+Problem Formulation and HMM Terminology:
 
+We start by formulating the problem using a basic example to introduce the terminology of HMM. This includes defining states, observations, transition probabilities, and emission probabilities.
+Bayes' Rule Application:
 
-Hidden Markov Models`** (**= HMM**).
+Bayes' rule is illustrated to determine the most likely hidden state (such as the lane position) given an observation (like vehicle speed). This foundational concept helps in understanding how to infer hidden states based on observed data.
+Forward and Backward Algorithms:
 
-Main topics:
-- Problem formulation using a basic example to introduce the **HMM terminology**.
-- Illustration of the **Bayes' rule** to determine the most likely hidden state given an observation.
-- Implementation of the **Forward Algorithm** and the **Backward Algorithm** to compute the probability of a particular observation sequence.
-- Definition and illustration of the benefits of **Dynamic Programming**.
-- Implementation of the **Viterbi Decoding Algorithm** to find the most likely sequence of hidden states given an observation sequence.
-- Implementation of the **Baum-Welch Algorithm** to find the most likely HMM parameters given some observation sequences.
+The Forward Algorithm is implemented to compute the probability of a particular sequence of observations. Conversely, the Backward Algorithm calculates the probability of the observations given the final state. Together, these algorithms help in evaluating the likelihood of various sequences of states and observations.
+Dynamic Programming Benefits:
 
-[Bonus](#Bonus):
-- **Literature review** of **HMM implementations** for **Autonomous Driving**: a selection of recent research papers focusing on **manoeuvre recognition** and **driving behaviour estimation** for **prediction purposes**.
+The concept and benefits of Dynamic Programming are discussed, showing how it optimizes the computation of probabilities in HMMs by breaking down complex problems into simpler subproblems.
+Viterbi Decoding Algorithm:
 
-*invert the reasoning
+This algorithm is implemented to find the most likely sequence of hidden states given a sequence of observations. It’s crucial for determining the best path that represents the actual state transitions.
+Baum-Welch Algorithm:
 
-- Your car is driving on a **2-lane highway/motorway**.
-- Imagine that you can **remotely monitor the velocity of the car** (e.g. I communicate it to you).
-- But you do have **no direct access to the lateral position** (`right lane` of `left lane`).
-	- Formally, you **cannot directly observe the underlying stochastic walk between `lane` states**.
-- How could you **infer the `lane`** based on the single information you receive (the `speed`)?
+This algorithm is used to find the most likely HMM parameters given a set of observation sequences. It’s essential for training the HMM to accurately reflect real-world data.
+Application to SAL
+Invert the Reasoning:
 
-### Emission probability
+Imagine your car is driving on a 2-lane highway. You can remotely monitor the car’s velocity but do not have direct access to its lateral position (i.e., whether it is in the right or left lane). This scenario represents a situation where you cannot directly observe the underlying state transitions between lane positions. The challenge is to infer the lane position based on the speed data alone.
 
-If I am telling you that I am driving with a `low speed`, you **may guess** that I am on the right lane.
-- For instance, because I am just driving alone at a reasonable pace.
-- Or because I am blocked by a slow vehicle while not able to take it over.
-- But I could also drive fast on this `right lane`: Have you ever been driving alone on a no-speed-limit German highway?
+Emission Probability:
 
-Similarly, if you get informed of a `high speed`, you could say that I am **more likely** to be driving on the left lane.
-- Probably overtaking another vehicle.
-- Nevertheless, this is **not always true**: Think of the situation where you are waiting on the left lane behind a truck trying to overtake another truck.
+If the car is driving at a low speed, you might infer it is in the right lane. This could be because the car is driving at a reasonable pace or is blocked by a slower vehicle.
+Conversely, a high speed might suggest the car is in the left lane, possibly overtaking another vehicle. However, this is not always true since the car might be waiting behind a slower vehicle in the left lane.
+From this, we get the intuition that the lane position affects the speed. This relationship is stochastic rather than deterministic, meaning that while speed gives us clues about lane position, it does not determine it with certainty.
 
-We get here a **first intuition**:
-- The variable `lane` seems to have an impact on the variable `speed`.
-- In  other words: **you do not drive at the same pace depending if you are on `left lane` or `right lane`**.
-- But the relation is **not deterministic**. It is **stochastic**.
+Emission Probabilities in HMM:
 
-This **causality finding** will be modelled using **`emission probabilities`** in the following.
+This stochastic relationship is modeled using emission probabilities in HMM. For SAL:
+
+States: Lane positions (left lane, right lane)
+Observations: Vehicle speed and other relevant data
+Transition Probabilities: Likelihood of switching from one lane to another
+Emission Probabilities: Likelihood of observing a particular speed given the lane position
+Literature Review:
+
+Recent research papers on HMM implementations for autonomous driving focus on maneuver recognition and driving behavior estimation for prediction purposes. This aligns with SAL’s goal to predict and react to driver behavior and lane changes accurately.
+
+Conclusion
+By applying HMM to SAL, we can infer the most likely lane position and predict driver behavior based on observable data like speed. This enhances SAL’s capability to provide dynamic and accurate alerts, significantly improving road safety. Current efforts focus on refining these algorithms to ensure real-time processing and high accuracy, making SAL a robust solution for autonomous lane detection and driver monitoring.
+
 
 ### Transition probability
 
