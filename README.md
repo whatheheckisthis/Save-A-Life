@@ -1,4 +1,4 @@
-# :blue_car: :car: :taxi: HMMs for Autonomous Driving :taxi: :car: :blue_car:
+HMMs for Autonomous Driving 
 
 # Introduction
 Disclaimer:
