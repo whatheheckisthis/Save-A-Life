@@ -23,7 +23,7 @@ Data-Driven Insights: Analyze historical data to identify patterns that contribu
 9. Benefits for SAL:
 Enhanced Decision-Making: Data-driven insights can lead to improved safety interventions.
 Market Positioning: Using sophisticated models like HMM can position SAL as a leader in AI-driven road safety solutions.
-Tailored Solutions: HMM can help in developing customized safety features for different driving conditions and user profiles.
+Tailored Solutions: HMM can help in developing customised safety features for different driving conditions and user profiles.
 Conclusion
 Utilizing a Hidden Markov Model can enhance SAL’s capabilities in predicting and improving road safety by providing deeper insights into the relationships between observable behaviors and hidden risk factors.
 
@@ -41,7 +41,7 @@ Forward and Backward Algorithms:
 The Forward Algorithm is implemented to compute the probability of a particular sequence of observations. Conversely, the Backward Algorithm calculates the probability of the observations given the final state. Together, these algorithms help in evaluating the likelihood of various sequences of states and observations.
 Dynamic Programming Benefits:
 
-The concept and benefits of Dynamic Programming are discussed, showing how it optimizes the computation of probabilities in HMMs by breaking down complex problems into simpler subproblems.
+The concept and benefits of Dynamic Programming are discussed, showing how it optimises the computation of probabilities in HMMs by breaking down complex problems into simpler subproblems.
 Viterbi Decoding Algorithm:
 
 This algorithm is implemented to find the most likely sequence of hidden states given a sequence of observations. It’s crucial for determining the best path that represents the actual state transitions.
