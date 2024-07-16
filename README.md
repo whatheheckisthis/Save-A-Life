@@ -1,6 +1,4 @@
 # Overview 
-Purpose
-This repository serves as a comprehensive guide for implementing Hidden Markov Models (HMM) in the context of SAL's road safety solutions. It provides documentation, examples, and resources for understanding and utilizing HMM effectively
 
 # In the context of SAL (Save a Life), a Hidden Markov Model (HMM) can be employed to analyse and predict road safety outcomes based on various observable and hidden states. Here’s how it could work:
 
