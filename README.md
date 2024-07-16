@@ -24,8 +24,8 @@ Data-Driven Insights: Analyze historical data to identify patterns that contribu
 Enhanced Decision-Making: Data-driven insights can lead to improved safety interventions.
 Market Positioning: Using sophisticated models like HMM can position SAL as a leader in AI-driven road safety solutions.
 Tailored Solutions: HMM can help in developing customised safety features for different driving conditions and user profiles.
-Conclusion
-Utilizing a Hidden Markov Model can enhance SAL’s capabilities in predicting and improving road safety by providing deeper insights into the relationships between observable behaviors and hidden risk factors.
+
+Utilising a Hidden Markov Model can enhance SAL’s capabilities in predicting and improving road safety by providing deeper insights into the relationships between observable behaviors and hidden risk factors.
 
 This can ultimately lead to more effective interventions and a stronger market presence.
 
