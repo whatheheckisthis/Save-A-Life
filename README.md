@@ -1,6 +1,6 @@
 # Overview 
 
-# In the context of SAL (Save a Life), a Hidden Markov Model (HMM) can be employed to analyse and predict road safety outcomes based on various observable and hidden states. Here’s how it could work:
+In the context of SAL (Save a Life), a Hidden Markov Model (HMM) can be employed to analyse and predict road safety outcomes based on various observable and hidden states. Here’s how it could work:
 
 1. Observable States:
 Traffic Conditions: Data on traffic flow, congestion, and road conditions.
