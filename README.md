@@ -1,9 +1,5 @@
 # Mask R-CNN for Object Detection and Segmentation
 
-markdown
-Copy code
-# SAL (Save a Life)
-
 SAL is an advanced AI-driven lane detection and driver monitoring solution designed to enhance road safety by leveraging state-of-the-art machine learning models. This repository integrates Mask R-CNN for object detection and segmentation with SAL's Hidden Markov Model (HMM) and Gaussian Mixture Model (GMM).
 
 ## Table of Contents
@@ -78,11 +74,7 @@ Commit your changes (git commit -m "Add new feature").
 Push to the branch (git push origin feature-branch).
 Open a pull request.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-yaml
-Copy code
 
 
 
