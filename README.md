@@ -48,8 +48,6 @@ Similar to its initial application in seismic inversion, our adapted Gaussian Mi
 This comprehensive testing ensures that the algorithm performs reliably under a wide range of conditions and scenarios, validating its effectiveness for lane detection.
 By leveraging the Gaussian Mixture MCMC algorithm's strengths in handling complex, multimodal distributions and efficiently sampling high-dimensional spaces, we are pioneering a new frontier in lane detection technology. This innovative repurposing underscores the algorithm's versatility and the transformative potential of cross-domain applications.
 
-- *GaussianMixMCMC_metropolis.m:* Main function about the methodology 
-- *data:* this folder contains a synthetic dataset used as an example
-- *functions:* this folder contains functions with by the method;
+
 
 
