@@ -185,7 +185,6 @@ Mask R-CNN, originally developed by Kaiming He, Georgia Gkioxari, Piotr Dollár,
 # Source Code Attribution:
 
 # Mask R-CNN: Original Code by Matterport, Inc.
-2. Processing Hyper-Real Images
 
 To demonstrate the model's functionality, we use hyper-real images that simulate real-world scenarios where lane detection and driver monitoring are critical. These images are processed to showcase how our system can detect and segment objects with high precision.
 
@@ -194,12 +193,6 @@ Below is the Python script that integrates Mask R-CNN with our system. This scri
 
 Certainly! To integrate the code walkthrough and images of cars from Australia and New Zealand, you can set up two separate sections in your documentation:
 
-1. **Code Walkthrough**
-2. **Image Examples**
-
-Here’s how you can organize them:
-
----
 
 ### **Code Walkthrough**
 
