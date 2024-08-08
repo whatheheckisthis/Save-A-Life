@@ -170,26 +170,26 @@ Performance Optimization: Leveraging CUDA for acceleration, the system will be f
 This approach ensures that SAL benefits from the state-of-the-art capabilities
 
 
-Documentation for VCs, Angel Investors, and Stakeholders
+# Documentation for VCs, Angel Investors, and Stakeholders
 Integrating Hyper-Real Images with Our Model
 In demonstrating the capabilities of our model, we've employed hyper-realistic images to showcase the integration of Mask R-CNN with our Hidden Markov Models (HMM). The following walkthrough details how our solution processes these images to provide meaningful outputs, useful for road safety applications.
 
-Introduction
+# Introduction
 Our system leverages advanced computer vision and machine learning technologies to enhance driver safety. We integrate Mask R-CNN, a state-of-the-art object detection model, with our HMM framework. This combination allows us to detect and segment objects in real-time, providing insights that can significantly improve our lane detection and driver monitoring capabilities.
 
-Implementation Overview
+# Implementation Overview
 1. Mask R-CNN Integration
 
 Mask R-CNN, originally developed by Kaiming He, Georgia Gkioxari, Piotr Dollár, and Ross B. Girshick, is used to identify and segment objects within images. The model's capability to detect and create masks for multiple objects enables us to extract detailed information from the visual input, which is crucial for our system’s performance.
 
-Source Code Attribution:
+# Source Code Attribution:
 
-Mask R-CNN: Original Code by Matterport, Inc.
+# Mask R-CNN: Original Code by Matterport, Inc.
 2. Processing Hyper-Real Images
 
 To demonstrate the model's functionality, we use hyper-real images that simulate real-world scenarios where lane detection and driver monitoring are critical. These images are processed to showcase how our system can detect and segment objects with high precision.
 
-Code Walkthrough
+# Code Walkthrough
 Below is the Python script that integrates Mask R-CNN with our system. This script reads hyper-real images, applies the Mask R-CNN model, and visualizes the results.
 
 Certainly! To integrate the code walkthrough and images of cars from Australia and New Zealand, you can set up two separate sections in your documentation:
