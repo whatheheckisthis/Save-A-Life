@@ -158,11 +158,9 @@ Let's break down the Hidden Markov Model (HMM) concepts using a simpler analogy:
 
 In summary, the HMM helps you make educated guesses about things you can’t directly observe (like which lane the car is in) based on things you can observe (like the car’s speed), using patterns and probabilities you’ve learned from watching for a while.
 
-| ![Derivation of the posterior probabilities for a single observation.](docs/posteriors.PNG "Derivation of the posterior probabilities for a single observation.")  | 
-|:--:| 
-| *Derivation of the posterior probabilities for a single observation.* |
 
-The question was: *Given a single observation, what is the most likely hidden state?*.
+
+
 
 Looking at the numbers on the figure below and taking the `max()`, the answer is:
 
