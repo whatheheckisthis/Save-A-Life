@@ -14,7 +14,7 @@
 
 ### Reporting a Vulnerability
 
-If you discover a vulnerability in any of our supported versions, please report it promptly to ensure it is addressed. You can submit your report via email to [saldevs.team@gmail.com](mailto:saldevs.team@gmail.com).
+If you discover a vulnerability in any of our supported versions, please report it promptly to ensure it is addressed. You can submit your report via email to [saldevs.team@gmail.com](mailto:saldevs.team@gmail.com)
 
 When you report a vulnerability, you can expect the following:
 
