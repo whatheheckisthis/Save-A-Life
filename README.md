@@ -175,7 +175,7 @@ Integrating Hyper-Real Images with Our Model
 In demonstrating the capabilities of our model, we've employed hyper-realistic images to showcase the integration of Mask R-CNN with our Hidden Markov Models (HMM). The following walkthrough details how our solution processes these images to provide meaningful outputs, useful for road safety applications.
 
 # Introduction
-Our system leverages advanced computer vision and machine learning technologies to enhance driver safety. We integrate Mask R-CNN, a state-of-the-art object detection model, with our HMM framework. This combination allows us to detect and segment objects in real-time, providing insights that can significantly improve our lane detection and driver monitoring capabilities.
+Our system leverages advanced computer vision and machine learning technologies to enhance driver safety. We integrate Mask R-CNN, a state-of-the-art object detection model, with our HMM framework. This combination allows us to detect and segment objects in real time, providing insights that can significantly improve our lane detection and driver monitoring capabilities.
 
 # Implementation Overview
 1. Mask R-CNN Integration
@@ -191,7 +191,7 @@ To demonstrate the model's functionality, we use hyper-real images that simulate
 # Code Walkthrough
 Below is the Python script that integrates Mask R-CNN with our system. This script reads hyper-real images, applies the Mask R-CNN model, and visualizes the results.
 
-Certainly! To integrate the code walkthrough and images of cars from Australia and New Zealand, you can set up two separate sections in your documentation:
+To integrate the code walkthrough and images of cars from Australia and New Zealand, you can set up two separate sections in your documentation:
 
 
 ### **Code Walkthrough**
@@ -275,8 +275,9 @@ The following images showcase the Mask R-CNN model's object detection capabiliti
 In the output image, you can see the detected objects highlighted with masks and bounding boxes. This visualization demonstrates how our system identifies and segments objects in various driving scenarios.
 
 Objective Conclusion
-The integration of Mask R-CNN with our HMM framework represents a significant advancement in our approach to road safety. By accurately detecting and segmenting objects in real time, our system can provide actionable insights to improve driver assistance technologies.
+The integration of Mask R-CNN with our HMM framework represents a significant advancement in our approach to road safety. By accurately detecting and segmenting objects in real-time, our system can provide actionable insights to improve driver assistance technologies.
 
 We believe this demonstration showcases the potential of our technology and its value in enhancing road safety and driving experience.
 
-For further details or questions about our implementation, [please contact us](saldevs.team@gmail.com)
+
+For further details or questions about our implementation, [please contact us]([www.savealife.co.nz](https://savealife.co.nz/)
