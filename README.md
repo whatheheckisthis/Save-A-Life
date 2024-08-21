@@ -280,4 +280,4 @@ The integration of Mask R-CNN with our HMM framework represents a significant ad
 We believe this demonstration showcases the potential of our technology and its value in enhancing road safety and driving experience.
 
 
-For further details or questions about our implementation, [please contact us]([www.savealife.co.nz](https://savealife.co.nz/)
+For further details or questions about our implementation, [please contact us](https://savealife.co.nz/)
